@@ -1,0 +1,15 @@
+package com.interview.battleshipgame;
+
+public enum EventCategory {
+    FIRE_MISSILE,
+    MISSILES_EXHAUSTED,
+    SHIPS_EXHAUSTED,
+    MISSILE_FIRED,
+    TARGET_HIT,
+    TARGET_MISSED,
+    SWITCH_ACTIVE_PLAYER_COMMAND,
+    FIRE_MISSILE_COMMAND,
+    PLAYER_WON,
+    WAR_GAME_IS_DRAW,
+    START_WAR_COMMAND;
+}

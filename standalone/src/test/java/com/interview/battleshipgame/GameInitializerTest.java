@@ -80,49 +80,49 @@ public class GameInitializerTest
   }
 
   @Test
-  public void initializeBattleshipCount_countWithinRange_SUCCESS
+  public void initializeBattleshipCount_countWithinRange_SUCCESS()
   {
     
   }
   
   @Test
-  public void initializeShipLocation_TypeValid_SUCCESS
+  public void initializeShipLocation_TypeValid_SUCCESS()
   {
     
   }
   
   @Test
-  public void initializeShipLocation_HeightWithinRange_SUCCESS
+  public void initializeShipLocation_HeightWithinRange_SUCCESS()
   {
     
   }
   
   @Test
-  public void initializeShipLocation_WidthWithinRange_SUCCESS
+  public void initializeShipLocation_WidthWithinRange_SUCCESS()
   {
     
   }
   
   @Test
-  public void initializeShipLocation_XCordinateWithinRange_SUCCESS
+  public void initializeShipLocation_XCordinateWithinRange_SUCCESS()
   {
     
   }
   
   @Test
-  public void initializeShipLocation_YCordinateWithinRange_SUCCESS
+  public void initializeShipLocation_YCordinateWithinRange_SUCCESS()
   {
     
   }
   
   @Test
-  public void initializeShipLocation_PerfectlyAlignedWithNoOverlapping_SUCCESS
+  public void initializeShipLocation_PerfectlyAlignedWithNoOverlapping_SUCCESS()
   {
     
   }
   
   @Test
-  public void initializeTargetLocation_WithinEnemyBattleFieldArea_SUCCESS
+  public void initializeTargetLocation_WithinEnemyBattleFieldArea_SUCCESS()
   {
     
   }

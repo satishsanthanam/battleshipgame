@@ -10,7 +10,28 @@ import java.util.stream.Collectors;
 
 public class GameInitializer
 {
-
+  Player p1 = new Player();
+  Player p2 = new Player();
+  WarMonitorer wm = new WarMonitorer();
+  
+  public static void main(String[] args) throws IOException
+  {
+    GameInitializer gi = new GameInitializer();
+    gi.initializeInputFile(args[1]);
+  //  gi.validateInput();
+    gi.initializePlayers();
+    
+  }
+  
+  public void initializePlayers()
+  {
+    String[] missilesOfPlayer1 = inputLines.get(4).split(" ");
+    String[] missilesOfPlayer2 = inputLines.get(5).split(" ");
+    
+   // p1.initializeMissiles(missilesOfPlayer1);
+   // p2.initializeMissiles(missilesOfPlayer2);
+  }
+  
   private List<String> inputLines = new ArrayList<>();
   
   public GameErrorCode initializeInputFile(String pathToFile) throws IOException
