@@ -2,8 +2,19 @@ package com.interview.battleshipgame;
 
 public class EventData
 {
-  public EventCategory eventCategory;
-  public String missileTargetCoordinate;
+  private EventCategory eventCategory;
+  private CartesianCoordinate missileTargetCoordinate;
+  private int playerId;
+  
+  public int getPlayerId()
+  {
+    return playerId;
+  }
+  
+  public void setPlayerId(int input)
+  {
+    playerId = input;
+  }
   
   public EventCategory getEventCategory()
   {
@@ -15,12 +26,12 @@ public class EventData
     eventCategory = input;
   }
   
-  public String getMissileTargetCoordinate()
+  public CartesianCoordinate getMissileTargetCoordinate()
   {
     return missileTargetCoordinate;
   }
   
-  public void setMissileTargetCoordinate(String input)
+  public void setMissileTargetCoordinate(CartesianCoordinate input)
   {
     missileTargetCoordinate = input;
   }  
