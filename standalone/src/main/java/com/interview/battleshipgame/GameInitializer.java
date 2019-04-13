@@ -117,7 +117,6 @@ public class GameInitializer
      p1.setBattleShipStrength(battleShipStrengthA, width, height);
      
      Integer[][] battleShipStrengthB = bfi.initializeBattleField(width, height, noOfShips, playerBShipsDetails);
-  
      p2.setBattleShipStrength(battleShipStrengthB, width, height);
     
     return GameErrorCode.SUCCESS;
