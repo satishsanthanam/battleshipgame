@@ -1,5 +1,19 @@
 # battleshipgame
 
+# Design
+This is designed using EventStorming technique.  Please check https://miro.com/welcomeonboard/whHUI8dqkWMkRVKDVZNZcjFikIxQtXLvkNLO9mWEp6HkJVJCWp68Y1aXHamdpYjM for Events, Commands & Aggregates design
+
+| Event	| Who can generate	| Who can listen |
+|-----------|-------------------|----------------|
+| Fire Missile |	WarMonitorer/Player |	Player |
+|Missiles Exhausted |	Player |	Player | 
+|Ships Exhausted |	Player |	Player|
+|Missile Fired |	Player |	Player|
+|Target Hit |	Player | Player|
+|Target Miss |	Player |	Player|
+|War Drawn |	Player |	WarMonitorer|
+|Player WON |	Player |	WarMonitorer|
+
 # input file format
 5 E
 2
