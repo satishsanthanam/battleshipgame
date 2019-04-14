@@ -23,5 +23,5 @@ A1 B2 B3 A1 D1 E1 D4 D4 D5 D5
 # How to run the program?
 java -cp standalone/target/standalone-1.0-SNAPSHOT.jar com.interview.battleshipgame.GameInitializer <pathToInputFile>
 ex.,
-java -cp standalone/target/standalone-1.0-SNAPSHOT.jar com.interview.battleshipgame.GameInitializer ./inputFileForGame.txt 
+java -cp standalone/target/standalone-1.0-SNAPSHOT.jar com.interview.battleshipgame.GameInitializer standalone/inputFileForGame.txt 
 

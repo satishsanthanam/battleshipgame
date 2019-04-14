@@ -82,7 +82,7 @@ public class GameInitializerTest
   public void initializeInputFile_AbleToReadInputFile_SUCCESS() throws IOException
   {
     GameInitializer gameInitializer = new GameInitializer();
-    GameErrorCode code = gameInitializer.initializeInputFile("/home/cabox/workspace/inputToGame.txt");
+    GameErrorCode code = gameInitializer.initializeInputFile("./inputFileForGame.txt");
     assertEquals(code, GameErrorCode.SUCCESS);
   }
   
@@ -90,7 +90,7 @@ public class GameInitializerTest
   public void initializeInputFiles_CountOfLinesReadIsValid_SUCCESS() throws IOException
   {
     GameInitializer gameInitializer = new GameInitializer();
-    GameErrorCode code = gameInitializer.initializeInputFile("/home/cabox/workspace/inputToGame.txt");
+    GameErrorCode code = gameInitializer.initializeInputFile("./inputFileForGame.txt");
     assertEquals(GameErrorCode.SUCCESS, gameInitializer.isLinesCountValid());
   }
  
