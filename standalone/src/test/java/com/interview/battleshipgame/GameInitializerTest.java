@@ -4,6 +4,7 @@ import org.junit.Test;
 import java.io.IOException;
 import java.util.List;
 import java.util.ArrayList;
+import java.lang.InterruptedException;
 
 import static org.junit.Assert.assertEquals;
 /**
@@ -16,7 +17,67 @@ public class GameInitializerTest
   {
      assertEquals(1,1);
   }
-  
+
+  @Test
+  public void playGame1_PLAYER2_WON() throws InvalidInputException, InterruptedException
+  {
+    GameInitializer gameInitializer = new GameInitializer();
+    List<String> inputLines = new ArrayList<>();
+    inputLines.add("5 E");
+    inputLines.add("2");
+    inputLines.add("Q 1 1 A1 P 2 1 D4");
+    inputLines.add("Q 1 1 B2 P 2 1 C3");
+    inputLines.add("A1 B2 B2 B3");
+    inputLines.add("A1 B2 B3 A1 D1 E1 D4 D4 D5 D5");
+    gameInitializer.setInputLines(inputLines);
+    gameInitializer.initializeBattleArea();
+    gameInitializer.initializeNoOfShips();
+    gameInitializer.initializeShips();
+    gameInitializer.initializeMissilePositions();
+    gameInitializer.begin();
+    assertEquals("WAR is OVER and Result is Player with Id 2 WON", gameInitializer.getFinalResult());
+  }
+
+  @Test
+  public void playGame2_PLAYER1_WON() throws InvalidInputException, InterruptedException
+  {
+    GameInitializer gameInitializer = new GameInitializer();
+    List<String> inputLines = new ArrayList<>();
+    inputLines.add("5 E");
+    inputLines.add("2");
+    inputLines.add("Q 1 1 A1 P 2 1 D4");
+    inputLines.add("Q 1 1 B2 P 2 1 C3");
+    inputLines.add("A1 B2 B2 B3 D1 E2 C3 C4");
+    inputLines.add("A1 B2 B3 A1 D3 D3 D5 D5");
+    gameInitializer.setInputLines(inputLines);
+    gameInitializer.initializeBattleArea();
+    gameInitializer.initializeNoOfShips();
+    gameInitializer.initializeShips();
+    gameInitializer.initializeMissilePositions();
+    gameInitializer.begin();
+    assertEquals("WAR is OVER and Result is Player with Id 1 WON", gameInitializer.getFinalResult());
+  }
+
+  @Test
+  public void playGame3_WAR_DRAW() throws InvalidInputException, InterruptedException
+  {
+    GameInitializer gameInitializer = new GameInitializer();
+    List<String> inputLines = new ArrayList<>();
+    inputLines.add("5 E");
+    inputLines.add("2");
+    inputLines.add("Q 1 1 A1 P 2 1 D4");
+    inputLines.add("Q 1 1 B2 P 2 1 C3");
+    inputLines.add("A1 B2 B2 B3 D1 E2 C1 C4");
+    inputLines.add("A1 B2 B3 A1 D3 D3 D5 D5");
+    gameInitializer.setInputLines(inputLines);
+    gameInitializer.initializeBattleArea();
+    gameInitializer.initializeNoOfShips();
+    gameInitializer.initializeShips();
+    gameInitializer.initializeMissilePositions();
+    gameInitializer.begin();
+    assertEquals("WAR is OVER and Result is DRAW", gameInitializer.getFinalResult());
+  }
+
   @Test
   public void initializeInputFile_AbleToReadInputFile_SUCCESS() throws IOException
   {
@@ -220,7 +281,6 @@ public class GameInitializerTest
     gameInitializer.initializeShips();
     assertEquals(GameErrorCode.SUCCESS, gameInitializer.initializeMissilePositions());
   }
-   
 
   @Test(expected = InvalidInputException.class)
   public void initializeLines_Line6ValidInput_SUCCESS() throws InvalidInputException
@@ -239,4 +299,5 @@ public class GameInitializerTest
     gameInitializer.initializeShips();
     gameInitializer.initializeMissilePositions();
   }
+  
 }

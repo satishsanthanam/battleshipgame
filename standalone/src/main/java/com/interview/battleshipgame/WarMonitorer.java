@@ -7,6 +7,7 @@ public class WarMonitorer extends Observable implements Observer {
   private EventData eventData;
   private Player activePlayer;
   private Player dormantPlayer;
+  private String finalResult = null;
   
   public WarMonitorer(Player actPlayerIn, Player dorPlayerIn)
   {
@@ -15,6 +16,11 @@ public class WarMonitorer extends Observable implements Observer {
     dormantPlayer = dorPlayerIn;
     addObserver(activePlayer);
     addObserver(dormantPlayer);
+  }
+  
+  public String getFinalResult()
+  {
+    return finalResult;  
   }
   
   public void setActivePlayer(Player player)
@@ -48,12 +54,13 @@ public class WarMonitorer extends Observable implements Observer {
     switch (currentEventCategory)
     {
       case WAR_DRAW:
-        System.out.println("WAR is OVER and Result is DRAW");
+        finalResult = new String("WAR is OVER and Result is DRAW");
         break;
       case PLAYER_WON:
         Player p = (Player)observable;
-        System.out.println("WAR is OVER and Result is Player with Id " + p.getId() + " WON");
+        finalResult = new String("WAR is OVER and Result is Player with Id " + p.getId() + " WON");
         break;
     }
+    System.out.println("***FINAL RESULT***" + finalResult);
   }
 }

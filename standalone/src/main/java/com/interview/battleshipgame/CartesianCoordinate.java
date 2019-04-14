@@ -29,4 +29,9 @@ public class CartesianCoordinate {
   {
     y = inputY;
   }
+  
+  public String toString()
+  {
+    return Integer.toString(x) + Integer.toString(y);
+  }
 }

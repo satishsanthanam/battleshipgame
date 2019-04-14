@@ -16,6 +16,16 @@ public class BattleFieldInitializer {
   private Integer[][] battleShipStrength = new Integer[9][26];
   private int totalShips;
 
+  public void setWidth(int inputWidth)
+  {
+    width = inputWidth;  
+  }
+  
+  public void setHeight(int inputHeight)
+  {
+    height = inputHeight;  
+  }
+  
   public Integer[][] initializeBattleField(int inputWidth, int inputHeight, int inputTotalShips, String[] shipDetails)  throws InvalidInputException
   {
     initBattleShipStrengthAsZero();
@@ -103,8 +113,8 @@ public class BattleFieldInitializer {
   private CartesianCoordinate getShipCoordinate(int iShipWidth, int iShipHeight, String shipStartCoordinate) throws InvalidInputException
   {
     CartesianCoordinate shipCartCoordinate = ConvertThoughtworksCoordinateToCartCoordinate(shipStartCoordinate);
-    if (shipCartCoordinate.getX() + iShipWidth > width ||
-          shipCartCoordinate.getY() + iShipHeight > height)
+    if (shipCartCoordinate.getX() + iShipHeight > height ||
+          shipCartCoordinate.getY() + iShipWidth > width)
     {
       throw new InvalidInputException("Ship size exceeds battle area" + " ShipWidth " + iShipWidth
                                      + " ShipHeight " + iShipHeight + " X " + shipCartCoordinate.getX()
@@ -129,7 +139,7 @@ public class BattleFieldInitializer {
     return shipStrength;
   }
   
-  private CartesianCoordinate ConvertThoughtworksCoordinateToCartCoordinate(String shipStartCoordinate) 
+  public CartesianCoordinate ConvertThoughtworksCoordinateToCartCoordinate(String shipStartCoordinate) 
     throws InvalidInputException
   {
     if (shipStartCoordinate == null || shipStartCoordinate.length() > 3)

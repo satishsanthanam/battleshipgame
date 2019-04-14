@@ -7,6 +7,7 @@ import java.nio.file.Paths;
 import java.nio.file.Files;
 import java.util.stream.Stream;
 import java.util.stream.Collectors;
+import java.lang.InterruptedException;
 
 public class GameInitializer
 {
@@ -51,6 +52,15 @@ public class GameInitializer
   public void begin()
   {
     wm.fireMissile();  
+  }
+  
+  public String getFinalResult() throws InterruptedException
+  {
+    while (wm.getFinalResult() == null)
+    {
+      Thread.sleep(1000);
+    }
+    return wm.getFinalResult();
   }
   
   public GameErrorCode initializeBattleArea() throws InvalidInputException
@@ -103,8 +113,6 @@ public class GameInitializer
     p1.setMissilePosition(playerAMissilePosition);
     p2.setMissilePosition(playerBMissilePosition);
     
-    System.out.println("Printing missile posistion for A");
-    System.out.println("Printing missile position for B");
     return GameErrorCode.SUCCESS;
   }
   
@@ -113,9 +121,11 @@ public class GameInitializer
      String[] playerAShipsDetails = inputLines.get(2).toUpperCase().split(" ");
      String[] playerBShipsDetails = inputLines.get(3).toUpperCase().split(" ");
     
+     bfi = new BattleFieldInitializer();
      Integer[][] battleShipStrengthA = bfi.initializeBattleField(width, height, noOfShips, playerAShipsDetails);
      p1.setBattleShipStrength(battleShipStrengthA, width, height);
      
+     bfi = new BattleFieldInitializer();
      Integer[][] battleShipStrengthB = bfi.initializeBattleField(width, height, noOfShips, playerBShipsDetails);
      p2.setBattleShipStrength(battleShipStrengthB, width, height);
     
