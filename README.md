@@ -14,6 +14,10 @@ This is designed using EventStorming technique.  Please check https://miro.com/w
 |War Drawn |	Player |	WarMonitorer|
 |Player WON |	Player |	WarMonitorer|
 
+# Scope for improvements
+*   Expose GameInitializer class via interface so that it can be called via UI like Swing.
+*   Add logging ability using log4j.
+
 # input file format
 5 E
 2
